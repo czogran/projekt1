@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-	cout << "aaaabbbbbbbbbbbbbbbbbbbbbbbbbb" << endl;
+	cout << "aaaabbbbbbbbbbbbbbbbbbbbbbbbbbssssssssssss" << endl;
 //tescik();
 //static Armia a(1,3);
 //Armia d(4, 3);

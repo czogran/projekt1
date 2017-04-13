@@ -15,6 +15,7 @@ int main()
 	cout << "dddd" << endl;
 	cout << "ssss" < endl;
 	cout << "sssssssasa" << endl;
+	cout << "eeeeee" << endl;
 //tescik();
 //static Armia a(1,3);
 //Armia d(4, 3);

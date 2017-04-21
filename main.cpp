@@ -7,21 +7,18 @@
 #include "divpanc.h"
 #include "army.h"
 #include "moj test.h"
+#include "ot.h"
 
 using namespace std;
 
 int main()
 {
-	
-//tescik();
-//static Armia a(1,3);
-//Armia d(4, 3);
-	cout << "aaaa" << endl<<endl;
-//a["aaaaaaaa"];
-	vector <Armia> armijka;
-	Armia a(3, 4);
-	Armia b(2, 2);
-	bool c;
-	c = a > b;
-	b = a(3, 5,"ala");
+	Ot b(4, 5);
+	Ot d(2, 4);
+	Armia *aa = new Ot(3,7);
+	aa->a();
+	Ot da = b;
+	//b=d;
+	b(3, 4, "222");
+	return 0;
 }

@@ -19,12 +19,21 @@ public:
 	Ot(int ilos, int ile_piech);
 	Ot(const Ot&o);
 
+
 	Ot & operator+(int b);
 	Ot  &operator=(const Ot& aa);
 	Ot  &operator()(int a, int b, string h);
+	Ot &operator()(string h, int a, int b);
+	bool operator ==(const Ot& a) const;
 	//Armia &operator=(const Armia &aa);
-	void a()
+	void zmn_il_pob(int ile)
 	{
-		cout << "ucze sieaaaaa" << endl;
+		if (ile>ilosc_poborowych)
+		cout << "za duzo chcesz" << endl;
+		else
+		{
+			ilosc_poborowych = ilosc_poborowych - ile;
+			cout << "mamy teraz tyle poborowych: " << ilosc_poborowych << endl;
+		}
 	}
 };

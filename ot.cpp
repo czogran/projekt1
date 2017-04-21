@@ -74,6 +74,30 @@ Ot & Ot::operator()(int a, int b, string h)
 {
 	cout << "To my wspaniala OT," << endl;
 	propa(a, b, h);
+	cout << endl;
 	return *this;
+}
+
+Ot & Ot::operator()(string h, int a, int b)
+{
+	cout << "My zolnierze OT" << endl;
+	zwprop(a, b, h);
+	cout << endl;
+	return *this;
+}
+
+bool Ot::operator==(const Ot & a) const
+{
+	
+	if (a.ile_piechota == ile_piechota)
+	{
+		cout << "mamy po tyle samo jednostek" << endl;
+		return true;
+	}
+	else
+	{
+		cout << "nie mamy tyle samo jednostek" << endl;
+		return false;
+	}
 }
 

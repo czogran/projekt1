@@ -21,9 +21,10 @@ class Ot :public Armia
 public:
 	Ot(int ilos, int ile_piech, int czas, string wodz,string krzyk);
 	Ot(int ilos, int ile_piech);
-	Ot(const Ot&o);
-
+	//Ot(const Ot&o);
+	
 	void plik();
+	void zpliku(int nr_jednostki);
 	
 	string dodaj_do_pliku();
 

@@ -41,7 +41,7 @@ public:
 		ile_piechota = 1;
 	}
 	~Armia();
-	Armia(const Armia&a);					// konstrukor kopiujacy, operator przypisania jest te¿ dla Divapanc i Piechota
+	//Armia(const Armia&a);					// konstrukor kopiujacy, operator przypisania jest te¿ dla Divapanc i Piechota
 	
 
 	void propa(int wyg_bit, int jency, string jen_gen);
@@ -62,6 +62,9 @@ public:
 	{
 		//fstream plik("armijka.txt", ios::in | ios::out | ios::app);
 	}
+	virtual void zpliku(int nr_jednostki)
+	{
+	}
 
 	virtual void a()
 	{
@@ -74,7 +77,7 @@ public:
 	virtual Armia  &operator()( string gen,int bit, int jen);					//3b
 	
 	
-	virtual Armia &operator=(const Armia &aa);							//4
+	//virtual Armia &operator=(const Armia &aa);							//4
 	void  operator[](string gen);								//5
 	void operator[](int a);										//6
 	virtual bool operator ==(const Armia& a) const;						//7

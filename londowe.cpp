@@ -32,6 +32,36 @@ void Lad::plik()
 	plik.close();
 }
 
+void Lad::zpliku(int nr_jed)
+{
+	ifstream plik;
+	plik.open("armijka.txt");
+	while (true) //pêtla nieskoñczona
+	{
+		int aq;
+		string bs, cc, dd;
+		int c, d, e, f;
+		plik >> bs;
+		//cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << bs <<"aaaa"<< endl;
+		if (plik.good())
+		{
+			if (bs == "Lad")
+			{
+				plik >> aq;
+				if (aq == nr_jed)
+				{
+					plik >> c >> d >> e >> cc;
+					cout << " ile_piechota " << c << " ilpanc " << d << " okres sluzby " << e << endl;
+				}
+				//cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+			}
+		}
+		else
+			break; //zakoñcz wczytywanie danych - wyst¹pi³ jakiœ b³¹d (np. nie ma wiêcej danych w pliku)
+
+	}
+}
+
 
 
 

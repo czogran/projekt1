@@ -18,6 +18,7 @@ Ot::Ot(int ilos = 6, int i = 1, int czas = 5, string w = "Adolf", string krzyk="
 	nr_tej = nr_armi;
 	ile_ot++;
 	nr_tej_ot = ile_ot;
+	//cout <<"OT "<< nr_tej_ot<<endl;
 	//cout << nr_armi << endl;
 }
 
@@ -37,12 +38,12 @@ Ot::Ot(int ilos, int ile_piech)
 	nr_tej_ot = ile_ot;
 }
 
-Ot::Ot(const Ot & o)
+/*Ot::Ot(const Ot & o)
 {
 	Ot a;
 	a = o;
 
-}
+}*/
 
 void Ot::plik()
 {
@@ -52,7 +53,36 @@ void Ot::plik()
 	plik.close();
 
 }
+void Ot::zpliku(int nr_jednostki)
+{
+	ifstream plik;
+	plik.open("armijka.txt");
+	while (true) //pêtla nieskoñczona
+	{
+		int aq;
+		string bs, cc, dd;
+		int c, d, e, f;
+		plik >> bs;
+		//cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << bs <<"aaaa"<< endl;
+		if (plik.good())
+		{
+			if (bs == "Ot")
+			{
+				plik >> aq;
+				if (aq == nr_jednostki)
+				{
+					cout << endl << aq << endl;
+					plik >> c >> d >> e >> cc;
+					cout << " ile_piechota " << c << " ilosc_poborowych " << d << " czas_szkolenia " << e << " okrzyk " << cc << endl;
+				}
+				
+			}
+		}
+		else
+			break; //zakoñcz wczytywanie danych - wyst¹pi³ jakiœ b³¹d (np. nie ma wiêcej danych w pliku)
 
+	}
+}
 
 
 string Ot::dodaj_do_pliku()

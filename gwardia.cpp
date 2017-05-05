@@ -38,6 +38,37 @@ void Gwardia::plik()
 	plik.close();
 }
 
+void Gwardia::zpliku(int nr_jed)
+{
+	ifstream plik;
+	plik.open("armijka.txt");
+	while (true) //pêtla nieskoñczona
+	{
+		int aq;
+		string bs, cc, dd;
+		int c, d, e, f;
+		plik >> bs;
+		//cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgggggggggggggggggggggggg" << bs <<"aaaa"<< endl;
+		if (plik.good())
+		{
+			if (bs == "Gw")
+			{
+				plik >> aq;
+				if (aq == nr_jed)
+				{
+					plik >> c >> d >> e >> f;
+					cout << " ile_piechota " << c << " ile panc " << d << " ile zmech " << e << " okres sluzby " << f << endl;
+				}
+				//cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+			}
+		}
+		else
+			break; //zakoñcz wczytywanie danych - wyst¹pi³ jakiœ b³¹d (np. nie ma wiêcej danych w pliku)
+
+	}
+
+}
+
 ostream & operator<<(ostream & wyj, Gwardia const &g)
 {
 	wyj << g.ile_zmech;

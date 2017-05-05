@@ -15,5 +15,5 @@ class Gwardia :public Lad
 		friend ostream& operator<< (ostream&, Gwardia const&);
 			
 		void plik();
-
+		void zpliku(int nr_jed);
 };

@@ -17,8 +17,8 @@ public:
 	
 	//Lad(const Lad&a);
 
-	void plik();
-	
+	virtual void plik();
+	virtual void zpliku(int nr_jed);
 
 	friend ostream& operator<< (ostream&, Lad const&);
 	Lad &operator+ (const int b);

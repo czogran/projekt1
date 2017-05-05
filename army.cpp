@@ -50,7 +50,7 @@ Armia::Armia(int c, int p, string w)
 int Armia::nr_armi = 0;
 
 
-Armia::Armia(const Armia & a)
+/*Armia::Armia(const Armia & a)
 {
 	ile_panc = a.ile_panc;
 	ile_piechota = a.ile_piechota;
@@ -75,7 +75,7 @@ Armia::Armia(const Armia & a)
 	cout << "stan armi bazowej:  "<<a.nr_tej<<" div pan "<<a.ile_panc<<" piech "<<a.ile_piechota<< endl;
 	cout << "stan armii skopiowanej " << nr_tej << " div panc " << ile_panc << " piechta " << ile_piechota << endl;
 	
-}
+}*/
 
 void Armia::propa(int a, int b, string g)
 {
@@ -187,7 +187,7 @@ Armia & Armia::operator()(string h, int a, int b)
 	return *this;
 }
 
-Armia & Armia::operator=(const Armia & aa)
+/*Armia & Armia::operator=(const Armia & aa)
 {
 	if (&aa == this) return *this;
 	/*
@@ -200,7 +200,7 @@ Armia & Armia::operator=(const Armia & aa)
 	for (int b = 0; b < ile_piechota; b++)
 	{
 		delete piechota;
-	}*/
+	}
 	//delete[] pancerne;
 	//delete[] piechota;
 	//delete (pancerne-1);
@@ -228,7 +228,7 @@ Armia & Armia::operator=(const Armia & aa)
 	cout << "stan armii przypisanej" << nr_armi << " div panc " << ile_panc << " piechta " << ile_piechota << endl;
 
 	return *this;
-}
+}*/
 
 void Armia::operator[](string gn)
 {
@@ -341,7 +341,7 @@ ostream & operator<<(ostream & wyjscie , Armia const & a)
 Armia::~Armia()
 {	
 	#ifdef _DEBUG
-		cout << "niszcze najlepsiejsza armie swiata"<<nr_armi<<" tej armii "<<nr_tej<<endl;
+		//cout << "niszcze najlepsiejsza armie swiata"<<nr_armi<<" tej armii "<<nr_tej<<endl;
 	#endif	
 	//delete[] pancerne;
 	//delete[] piechota;

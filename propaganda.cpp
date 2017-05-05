@@ -11,7 +11,7 @@ Propaganda::Propaganda(int wb, int j, string g)
 	jency = j;
 	general = g;
 #ifdef _DEBUG
-	cout << "propa kon: jestesmy wspaniali" << endl;
+//	cout << "propa kon: jestesmy wspaniali" << endl;
 #endif // _DEBUG
 
 }
@@ -19,7 +19,7 @@ Propaganda::Propaganda(int wb, int j, string g)
 Propaganda::~Propaganda()
 {
 	#ifdef _DEBUG
-		cout << "propa des: nasza ideologia przetrwa na wieki" << endl;
+	//	cout << "propa des: nasza ideologia przetrwa na wieki" << endl;
 	#endif // _DEBUG
 
 	

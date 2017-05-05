@@ -1,5 +1,7 @@
 #include "ot.h"
 
+int Ot::ile_ot = 0;
+
 Ot::Ot(int ilos = 6, int i = 1, int czas = 5, string w = "Adolf", string krzyk="hurraaa")
 {
 	ilosc_poborowych = ilos;
@@ -14,6 +16,8 @@ Ot::Ot(int ilos = 6, int i = 1, int czas = 5, string w = "Adolf", string krzyk="
 	}
 	//nr_armi++;///niedzia³a jak powinno
 	nr_tej = nr_armi;
+	ile_ot++;
+	nr_tej_ot = ile_ot;
 	//cout << nr_armi << endl;
 }
 
@@ -21,12 +25,16 @@ Ot::Ot(int ilos, int ile_piech)
 {
 	ilosc_poborowych = ilos;
 	ile_piechota = ile_piech;
+	okrzyk = "brak";
+	czas_szkolenia = 0;
 	for (int i = 0;i < ile_piechota; i++)
 	{
 		piechota.push_back(Piechota());
 	}
 	//nr_armi++;///niedzia³a jak powinno
 	nr_tej = nr_armi;
+	ile_ot++;
+	nr_tej_ot = ile_ot;
 }
 
 Ot::Ot(const Ot & o)
@@ -34,6 +42,24 @@ Ot::Ot(const Ot & o)
 	Ot a;
 	a = o;
 
+}
+
+void Ot::plik()
+{
+	fstream plik("armijka.txt", ios::in | ios::out | ios::app);
+	plik << "Ot " << nr_tej_ot << endl
+		<< ile_piechota << " " << ilosc_poborowych << " " << czas_szkolenia << " " << okrzyk << endl;
+	plik.close();
+
+}
+
+
+
+string Ot::dodaj_do_pliku()
+{
+	string d;
+	d = "to Ot";
+	return d;
 }
 
 Ot & Ot::operator+(int b)
@@ -101,3 +127,9 @@ bool Ot::operator==(const Ot & a) const
 	}
 }
 
+ostream & operator<<(ostream &wej, Ot const &aa)
+{
+	wej <<aa.nr_tej_ot<<" "<< aa.ile_piechota << " " << aa.okrzyk << endl;
+
+		return wej;
+}

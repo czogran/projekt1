@@ -33,8 +33,9 @@ protected:
 public:
 	Armia(int c, int p);//(int c = 0, int p = 0);
 	Armia(int c, int p, string w);
-	Armia() 
+	Armia () 
 	{
+		//cout << "saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"<< endl;
 		nr_armi++;
 		ile_panc = 1;
 		ile_piechota = 1;
@@ -51,15 +52,28 @@ public:
 	int suma_dzial();
 	int suma_czol();
 	void zmien_panc(int nr, int c, int lu);
-	
+	virtual string dodaj_do_pliku()
+	{
+		string wej;
+		wej = "to jest armia";
+		return wej;
+	}
+	virtual void  plik()
+	{
+		//fstream plik("armijka.txt", ios::in | ios::out | ios::app);
+	}
+
 	virtual void a()
 	{
 		cout << "armia" << endl;
 	}
+	virtual Armia &operator+(const Piechota&p);
 	virtual Armia & operator+(const int b);								//1 
-//	virtual friend ostream& operator<< (ostream&, Armia const& );		//2
+	friend ostream& operator<< (ostream&, Armia const& );		//2
 	virtual Armia  &operator()(int wyg_bit, int jency, string jen_gen);					//3a
 	virtual Armia  &operator()( string gen,int bit, int jen);					//3b
+	
+	
 	virtual Armia &operator=(const Armia &aa);							//4
 	void  operator[](string gen);								//5
 	void operator[](int a);										//6

@@ -1,9 +1,13 @@
 #include "londowe.h"
+#include <fstream>
 
-Lad::Lad( int pan, int p, string wdz)
+int Lad::ile_lad = 0;
+
+Lad::Lad( int pan, int p,int okres, string wdz)
 {
 	ile_piechota = p;
 	ile_panc = pan;
+	okres_sluzby = okres;
 	wodz = wdz;
 	
 	for (int i = 0; i < pan; i++)
@@ -15,9 +19,19 @@ Lad::Lad( int pan, int p, string wdz)
 		piechota.push_back(Piechota());
 	}
 	nr_tej = nr_armi;
-	
+	ile_lad++;
+	nr_tej_lad = ile_lad;
 
 }
+
+void Lad::plik()
+{
+	fstream plik("armijka.txt", ios::in | ios::out | ios::app);
+	plik << "Lad " << nr_tej_lad << endl
+		<< ile_piechota << " " << ile_panc << " " << okres_sluzby << endl;
+	plik.close();
+}
+
 
 
 
@@ -76,6 +90,11 @@ bool Lad::operator==(const Lad & a) const
 
 ostream & operator<<(ostream &wyjscie, Lad const & a)
 {
-	wyjscie << "numer armii: " << a.nr_tej << "Liczba piechoty " << a.ile_piechota << " dywizje pancerna: " << a.ile_panc << endl;
+	//cout << Armia();
+	
+	//wyjscie << "aa";
+	//cout << "ssss";
+	
+	wyjscie << "LADnumer armii: " << a.nr_tej << "Liczba piechoty " << a.ile_piechota << " dywizje pancerna: " << a.ile_panc << endl;
 	return wyjscie;
 }

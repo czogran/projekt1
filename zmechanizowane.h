@@ -14,4 +14,9 @@ public:
 		p = piechota;
 	czolgi=c;
 	}
+	friend ostream& operator<< (ostream& w, Zmech const&aa)
+	{
+		w << aa.czolgi << " " << aa.dziala << " " << aa.piechota << endl;
+		return w;
+	}
 };

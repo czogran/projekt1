@@ -35,6 +35,7 @@ Divpanc::Divpanc(const Divpanc & d)
 
 Divpanc & Divpanc::operator=(const Divpanc & b)
 {
+	
 	if (&b == this) return *this;
 	else
 	{
@@ -56,3 +57,11 @@ Divpanc::~Divpanc()
 	#endif
 	nr--;
 }
+
+/*ostream & operator<<(ostream &wyjscie, Divpanc const &aa)
+{
+
+	
+		//wyjscie << "ile armii: " << a.nr_armi << "Liczba piechoty " << a.ile_piechota << " dywizje pancerna: " << a.ile_panc << endl;
+	return wyjscie;
+}*/

@@ -17,5 +17,8 @@ public:
 	int daj_numer() { return nr; };
 	Divpanc & operator=(const Divpanc & b);
 	static int nr;
+//	friend ostream& operator<< (ostream&, Divpanc const&);
+	//friend ostream& operator<< (ostream&, Armia const&);
+
 	~Divpanc();
 };

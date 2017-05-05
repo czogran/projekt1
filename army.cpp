@@ -140,6 +140,14 @@ void Armia:: zmien_panc(int nr1, int c, int lu)
 
 	
 
+Armia & Armia::operator+(const Piechota & p)
+{
+	piechota.push_back(p);
+	//jak usun¹æ tutaj p;
+	cout << "poaaa" << endl;
+	return *this;
+}
+
 Armia& Armia::operator+(const int b)
 {
 	ile_panc = +b;
@@ -323,11 +331,12 @@ inline Armia::operator float() const
 
 
 
-/*ostream & operator<<(ostream & wyjscie , Armia const & a)
+ostream & operator<<(ostream & wyjscie , Armia const & a)
 {
-	wyjscie << "numer armii: "<< a.nr_tej<< "Liczba piechoty " << a.ile_piechota<< " dywizje pancerna: " << a.ile_panc << endl;
+	
+	wyjscie << "ARMYile armii: "<< a.nr_armi<< "Liczba piechoty " << a.ile_piechota<< " dywizje pancerna: " << a.ile_panc << endl;
 	return wyjscie;
-}*/
+}
 
 Armia::~Armia()
 {	

@@ -9,13 +9,16 @@ class Lad:public Armia
 {
 	protected:
 	int okres_sluzby;
-	
+	static int ile_lad;
+	int nr_tej_lad;
 
 public:
-	Lad( int pan=12, int piech=1, string wdz="Models");
+	Lad( int pan=12, int piech=1, int okres=10, string wdz="Models");
 	
-	Lad(const Lad&a);
+	//Lad(const Lad&a);
 
+	void plik();
+	
 
 	friend ostream& operator<< (ostream&, Lad const&);
 	Lad &operator+ (const int b);

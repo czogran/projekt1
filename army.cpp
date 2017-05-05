@@ -3,31 +3,31 @@
 #include<cstdlib>
 #include <string>
 #include<corecrt.h>
+#include <vector>
+
 
 using namespace std;
 Armia::Armia(int c, int p)
 {
+	Piechota a;
+	Divpanc d;
 	ile_panc = c;
 	ile_piechota = p;
 	nr_armi++;
 	nr_tej = nr_armi;
 	wodz = "Adolf";
-	pancerne = new Divpanc[ile_panc];
-	piechota = new Piechota[ile_piechota];
+	//pancerne = new Divpanc[ile_panc];
+//	piechota = new Piechota[ile_piechota];
+	for (int i = 0;i < ile_piechota;i++)
+	{
+		piechota.push_back(a);
+	}
 	for (int i = 0; i < ile_panc; i++)
 	{
-		pancerne[i].ta_armia(nr_tej);
+		pancerne.push_back(d);
+		//pancerne[i].ta_armia(nr_tej);
 	}
-	// Dlaczego to jest Ÿle?????? Specjanie tego nie usun¹³em, bo jestem ciekaw przyczyny
-	/*for (int i = 0; i < ile_panc;i++)
-	{
-		pancerne = new Divpanc;
-	}
-	for (int i = 0; i < ile_piechota; i++)
-	{
-		piechota = new Piechota;
-	}
-	*/
+	
 	#ifdef _DEBUG
 		cout << "Nowa armia ku mej chwale nr:" << nr_armi << endl;
 	#endif
@@ -58,15 +58,19 @@ Armia::Armia(const Armia & a)
 	nr_tej = nr_armi;
 	cout << "to konstruktor kopiujacy" << endl;
 	
-	piechota = new Piechota[ile_piechota];
-	pancerne = new Divpanc[ile_panc];
+//	piechota = new Piechota[ile_piechota];
+	piechota.clear();
+	//pancerne = new Divpanc[ile_panc];
+	pancerne.clear();
 	for (int i = 0; i < ile_panc; i++)
 	{
-		pancerne[i] = a.pancerne[i];
+		pancerne.push_back(a.pancerne[i]);
+		//pancerne[i] = a.pancerne[i];
 	}
 	for (int b = 0; b < ile_piechota; b++)
 	{
-		piechota[b] = a.piechota[b];
+		piechota.push_back(a.piechota[b]);
+		//piechota[b] = a.piechota[b];
 	}
 	cout << "stan armi bazowej:  "<<a.nr_tej<<" div pan "<<a.ile_panc<<" piech "<<a.ile_piechota<< endl;
 	cout << "stan armii skopiowanej " << nr_tej << " div panc " << ile_panc << " piechta " << ile_piechota << endl;
@@ -140,22 +144,24 @@ Armia& Armia::operator+(const int b)
 {
 	ile_panc = +b;
 	ile_piechota = +b;
-	Piechota *tworz=new Piechota[ile_piechota];
-	Divpanc *zapas= new Divpanc[ile_panc];
+	//Piechota *tworz=new Piechota[ile_piechota];
+	//Divpanc *zapas= new Divpanc[ile_panc];
 
 	for (int i = 0; i < ile_panc - b; i++)
 	{
-		tworz[i] = piechota[i];
+		
+		pancerne.push_back(Divpanc());
 
 	}
 	for (int d = 0; b < ile_piechota - b; d++)
 	{
-		zapas[d] = pancerne[d];
+		piechota.push_back(Piechota());
+		//zapas[d] = pancerne[d];
 	}
-	delete[] piechota;
-	delete[] pancerne;
-	piechota = tworz;
-	pancerne = zapas;
+	//delete[] piechota;
+	//delete[] pancerne;
+	//piechota = tworz;
+	//pancerne = zapas;
 	
 	return *this;
 
@@ -163,7 +169,6 @@ Armia& Armia::operator+(const int b)
 
 Armia & Armia:: operator()(int a, int b, string h)
 {
-	
 	propa(a, b, h);
 	return *this;
 }
@@ -188,23 +193,27 @@ Armia & Armia::operator=(const Armia & aa)
 	{
 		delete piechota;
 	}*/
-	delete[] pancerne;
-	delete[] piechota;
+	//delete[] pancerne;
+	//delete[] piechota;
 	//delete (pancerne-1);
 	//delete pancerne;
 	//delete piechota;
 	
 	ile_panc = aa.ile_panc;
 	ile_piechota = aa.ile_piechota;
-	piechota = new Piechota[ile_piechota];
-	pancerne = new Divpanc[ile_panc];
+	//piechota = new Piechota[ile_piechota];
+	piechota.clear();
+	pancerne.clear();
+	//pancerne = new Divpanc[ile_panc];
 	for (int i = 0; i < ile_panc; i++)
 	{
-		pancerne[i] = aa.pancerne[i];
+		pancerne.push_back(aa.pancerne[i]);
+		//pancerne[i] = aa.pancerne[i];
 	}
 	for (int b = 0; b < ile_piechota; b++)
 	{
-		piechota[b] = aa.piechota[b];
+		piechota.push_back(aa.piechota[b]);
+		//piechota[b] = aa.piechota[b];
 	}
 
 	cout << "to operator przypisania stan armi bazowej: " << aa.nr_armi << " div pan " << aa.ile_panc << "piech " << aa.ile_piechota << endl;
@@ -234,28 +243,7 @@ void Armia::operator[](int a)
 
 bool Armia::operator==(const Armia & a) const
 {
-	/*int c, d, e, f, g, h;
-	c = a.suma_czol();
-	d = suma_czol();
-	e = a.suma_dzial();
-	f = suma_dzial();
-	g = a.suma_piech();
-	h = suma_piech();
-	if (c==d  &&  e==f  && g ==h ) 
-	{
-		cout << "sa takie same" << endl;
-	return true;
-	}
-	else
-	{
-		if (c==d) cout << "maja tyle samo czolgow" << endl;
-		if (e==f) cout << "maja tyle samo dzial" << endl;
-		if (g==h) cout << "maja tyle samo ludzi" << endl;
-
-		return false;
-	}
 	
-	*/
 	if (a.ile_panc == ile_panc && a.ile_piechota == ile_piechota)
 	{
 		cout << "maja tyle samo jednostek" << endl;
@@ -335,19 +323,19 @@ inline Armia::operator float() const
 
 
 
-ostream & operator<<(ostream & wyjscie , Armia const & a)
+/*ostream & operator<<(ostream & wyjscie , Armia const & a)
 {
 	wyjscie << "numer armii: "<< a.nr_tej<< "Liczba piechoty " << a.ile_piechota<< " dywizje pancerna: " << a.ile_panc << endl;
 	return wyjscie;
-}
+}*/
 
 Armia::~Armia()
 {	
 	#ifdef _DEBUG
 		cout << "niszcze najlepsiejsza armie swiata"<<nr_armi<<" tej armii "<<nr_tej<<endl;
 	#endif	
-	delete[] pancerne;
-	delete[] piechota;
+	//delete[] pancerne;
+	//delete[] piechota;
 	//delete[]pancerne;
 	nr_armi--;
 }

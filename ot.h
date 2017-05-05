@@ -21,7 +21,7 @@ public:
 
 
 	Ot & operator+(int b);
-	Ot  &operator=(const Ot& aa);
+	//Ot  &operator=(const Ot& aa);
 	Ot  &operator()(int a, int b, string h);
 	Ot &operator()(string h, int a, int b);
 	bool operator ==(const Ot& a) const;

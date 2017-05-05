@@ -18,10 +18,19 @@ Divpanc::Divpanc(int cz, int l)
 	czolgi = cz;
 	ludzie = l;
 	nr = nr + 1;
-	
+	//cout << "a" <<nr<< endl;
 	#ifdef _DEBUG
-	cout << "utworzono divpanc " << nr << endl;
+		//cout << "utworzono divpanc " << nr << endl;
 	#endif
+}
+
+Divpanc::Divpanc(const Divpanc & d)
+{
+	czolgi = d.czolgi;
+	ludzie = d.ludzie;
+
+	nr++;
+	//cout << "kopia" << endl;
 }
 
 Divpanc & Divpanc::operator=(const Divpanc & b)
@@ -32,7 +41,7 @@ Divpanc & Divpanc::operator=(const Divpanc & b)
 		czolgi = b.czolgi;
 		ludzie = b.ludzie;
 		nr = b.nr;
-		
+		cout << "div przypisania" << endl;
 		return *this;
 	}
 }
@@ -43,7 +52,7 @@ Divpanc::~Divpanc()
 {
 	
 	#ifdef _DEBUG
-	cout << "zniszczono divpanc " << nr << endl;
+	//cout << "zniszczono divpanc " << nr << endl;
 	#endif
 	nr--;
 }

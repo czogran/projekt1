@@ -10,7 +10,7 @@ Piechota::Piechota(int dz, int l,string g)
 	ludzie = l;
 	gen = g;
 	#ifdef _DEBUG
-		cout << "kon: utworzono div piech" << endl;
+	//	cout << "kon: utworzono div piech" << endl;
 	#endif  _DEBUG
 
 }
@@ -30,6 +30,6 @@ Piechota &Piechota:: operator=(const Piechota &a)
 Piechota::~Piechota()
 {
 		#ifdef _DEBUG
-			cout << "des: koniec miesa armatniego" << endl;
+			//cout << "des: koniec miesa armatniego" << endl;
 		#endif
 }

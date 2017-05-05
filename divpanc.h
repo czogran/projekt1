@@ -13,7 +13,8 @@ class Divpanc
 
 public:
 	Divpanc(int cz = 10, int l = 40);
-	int daj_numer() { nr; };
+	Divpanc(const Divpanc&d);
+	int daj_numer() { return nr; };
 	Divpanc & operator=(const Divpanc & b);
 	static int nr;
 	~Divpanc();

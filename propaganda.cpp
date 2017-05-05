@@ -42,6 +42,6 @@ Propaganda & Propaganda::operator()(int a, int b, string h)
 	wygrane_bitwy =wygrane_bitwy+ a;
 	jency =jency+ b;
 	general = general + " " +h;
-	cout <<"wygralismy tyle bitew: "<< wygrane_bitwy << endl;
+	cout <<"wygralismy tyle bitew: "<< wygrane_bitwy <<general<< endl;
 	return *this;
 }

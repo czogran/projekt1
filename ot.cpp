@@ -10,9 +10,9 @@ Ot::Ot(int ilos = 6, int i = 1, int czas = 5, string w = "Adolf", string krzyk="
 	ile_piechota = i;
 	for (int i = 0;i < ile_piechota; i++)
 	{
-		piechota.push_back(pp);
+		piechota.push_back(Piechota());
 	}
-	nr_armi++;///niedzia³a jak powinno
+	//nr_armi++;///niedzia³a jak powinno
 	nr_tej = nr_armi;
 	//cout << nr_armi << endl;
 }
@@ -23,9 +23,9 @@ Ot::Ot(int ilos, int ile_piech)
 	ile_piechota = ile_piech;
 	for (int i = 0;i < ile_piechota; i++)
 	{
-		piechota.push_back(pp);
+		piechota.push_back(Piechota());
 	}
-	nr_armi++;///niedzia³a jak powinno
+	//nr_armi++;///niedzia³a jak powinno
 	nr_tej = nr_armi;
 }
 
@@ -42,13 +42,13 @@ Ot & Ot::operator+(int b)
 	ile_piechota = +b;
 	for (int d = 0; b < ile_piechota - b; d++)
 	{
-		piechota.push_back(pp);
+		piechota.push_back(Piechota());
 	}
 	cout << "dddddddddddddddddddd";
 	return *this;
 }
 
-Ot & Ot::operator=(const Ot & aa)
+/*Ot & Ot::operator=(const Ot & aa)
 {
 	
 	if (&aa == this) return *this;
@@ -68,7 +68,7 @@ Ot & Ot::operator=(const Ot & aa)
 
 		return *this;
 	
-}
+}*/
 
 Ot & Ot::operator()(int a, int b, string h)
 {

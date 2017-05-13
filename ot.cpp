@@ -138,11 +138,18 @@ int Ot::suma_dzial()
 	return 0;
 }
 
+/*Ot & Ot::operator+(const Piechota & p)
+{
+	piechota.push_back(p);
+	//jak usun¹æ tutaj p;
+	//cout << "poaaa" << endl;
+	return *this;
+}*/
 Ot & Ot::operator+(int b)
 {
 	
 	ile_piechota = +b;
-	for (int d = 0; b < ile_piechota - b; d++)
+	for (int d = 0; d < b; d++)
 	{
 		piechota.push_back(Piechota());
 	}

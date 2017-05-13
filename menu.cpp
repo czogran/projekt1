@@ -49,7 +49,6 @@ void menu()
 		cin >> c;
 		if (c < 0)c = c*(-1);
 		while (cin.fail() == 1)
-
 		{
 			cout << "daj liczbe" << endl;
 			cin.clear();
@@ -123,18 +122,19 @@ void menu()
 		int aq = 1;
 		while (aq > 0)
 		{
-			cout << "1.zapisz do pliku" << endl << "2.wczytaj z pliku" << endl << "3. testuj operatory " << endl << "4. zakoncz zabawe" << endl;
+			cout << "1.zapisz do pliku" << endl << "2.wczytaj z pliku" << endl << "3. testuj funkcje " << endl<<"4.testuj operatory"
+				<<endl << "5. zakoncz zabawe" << endl;
 			int q;
 			cin >> q;
-			while (q != 1 && q != 2 && q != 3 && q != 4)
+			while (q != 1 && q != 2 && q != 3 && q != 4&&q!=5)
 			{
-				cout << "daj liczbe 1 do 4" << endl;
+				cout << "daj liczbe 1 do 5" << endl;
 				cin.clear();
 				cin.ignore(100, '\n');
-				cin >> q;
+				q = bezpieczny_int(5);
 				//cout << q;
 			}
-			if (q == 4) break;
+			if (q == 5) break;
 			if (q == 1)
 			{
 				Armia *wskna;
@@ -240,18 +240,17 @@ void menu()
 				int qq;
 				if (qe == "Ot")
 				{
-
-					cin >> qq;
-					if (qq > obrona.size())
-						cout << "nie ma tyle Ot";
+					if (obrona.size() == 0) cout << "nie masz czego testowac" << endl;
+					
 					else
 					{
+						qq = bezpieczny_int(obrona.size()+1);
 						wsk = &obrona[qq - 1];
-						cout << "Podaj nr funkcji lub operatora, ktory chcesz przetestowaæ" << endl
+						cout << "Podaj nr funkcji, ktora chcesz przetestowaæ" << endl
 							<< "1.fun ile piechota" << endl
 							<< "2. fun ile dzial" << endl;
 						int as;
-						cin >> as;
+						as = bezpieczny_int(2);
 						if (as == 1)
 						{
 
@@ -265,18 +264,20 @@ void menu()
 				}
 				if (qe == "Lad")
 				{
-
-					cin >> qq;
-					if (qq > ladowe.size())
-						cout << "nie ma tyle ladowych";
+					if (ladowe.size() == 0) cout << "nie masz czego testowac" << endl;
 					else
 					{
+						qq = bezpieczny_int(ladowe.size()+1);
+						/*cin >> qq;
+						if (qq > ladowe.size())
+							cout << "nie ma tyle ladowych";*/
+
 						wsk = &ladowe[qq - 1];
-						cout << "Podaj nr funkcji lub operatora, ktory chcesz przetestowaæ" << endl
+						cout << "Podaj nr funkcji, która chcesz przetestowaæ" << endl
 							<< "1.fun ile piechota" << endl
 							<< "2. fun ile czolgow" << endl;
 						int as;
-						cin >> as;
+						as = bezpieczny_int(2);
 						if (as == 1)
 						{
 
@@ -284,23 +285,166 @@ void menu()
 						}
 						if (as == 2)
 						{
-							cout << wsk->suma_czol();
+							cout << wsk->suma_czol() << endl;
 						}
 						//else
 						//wsk->zpliku(qq);
 					}
-					if (qe == "Gw")
-					{
+				}
+				if (qe == "Gw")
+				{
+					if (gw.size() == 0) cout << "nie masz czego testowac" << endl;
+					else {
+
+
 						wsk = &gw[0];
-						cin >> qq;
-						if (qq > gw.size())
-							cout << "nie ma tyle Gw";
+						qq = bezpieczny_int(gw.size()+1);
+						int gg;
+						cout << "Podaj nr funkcji, ktora chcesz przetestowaæ" << endl
+							<< "1.fun ile piechota" << endl
+							<< "2. fun ile czolgow" << endl
+							<< "3.fun ile dzia" << endl;
+						gg = bezpieczny_int(3);
+						if (gg == 1)
+						{
+
+							cout << wsk->suma_piech() << endl;;
+						}
+						if (gg == 2)
+						{
+							cout << wsk->suma_czol() << endl;
+						}
+						if (gg == 3)
+						{
+							cout << wsk->suma_dzial() << endl;
+						}
 						//else
 						//wsk->zpliku(qq);
 					}
 				}
-			}
 
+
+			}
+			//testy operatorów
+			if (q == 4)
+			{
+				Armia *wsk;
+				int a;
+				cout << "Podaj jednostke z ktorech chcesz wywolywaæ" << endl;
+				string qe;
+				cin >> qe;
+				while (qe != "Ot" && qe != "Lad"  && qe != "Gw")
+				{
+					cout << "wpisz nazwe jednostki" << endl;
+					cin.clear();
+					cin.ignore(100, '\n');
+					cin >> qe;
+					//cout << qe;
+					//cout << q;
+				}
+				int qq;
+				if (qe == "Ot"&&obrona.size() == 0)
+				{
+					if (obrona.size() == 0) cout << "nie masz czego testowac" << endl;
+				
+				}
+				if (qe == "Lad"&&ladowe.size() == 0)
+				{
+					if (ladowe.size() == 0) cout << "nie masz czego testowac" << endl;
+				}
+				if (qe == "Gw"&&gw.size() == 0)
+				{
+					//cout << "ppppyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy";
+					if (gw.size() == 0) cout << "nie masz czego testowac" << endl;
+					//if (gw.size()==0) cout << "aaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
+				}
+				else
+				{
+					
+					if (qe == "Ot")
+					{
+						
+							qq = bezpieczny_int(obrona.size() + 1);
+							wsk = &obrona[qq - 1];
+
+					}
+					if (qe == "Lad")
+					{
+							qq = bezpieczny_int(ladowe.size() + 1);
+							wsk = &ladowe[qq - 1];
+					}
+					
+					if (qe == "Gw")
+					{
+						cout << "tyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" << endl;
+							qq = bezpieczny_int(gw.size() + 1);
+							wsk = &gw[qq - 1];
+					}
+
+					cout << "Podaj nr operatora, ktory chcesz przetestowaæ" << endl
+						<< "1.op +a jednostek" << endl
+						<< "2.op + jedna jednostka piechoty" << endl
+						<< "3.op == porown jednostki" << endl
+						<< "4.op (), który zwieksza propaganda i ja drukuje" << endl;
+					int a;
+					a = bezpieczny_int(4);
+					if (a == 1)
+					{
+						int ile_jed;
+						ile_jed = bezpieczny_int(30);
+						wsk->operator+(ile_jed);
+					}
+					if (a == 2)
+					{
+						cout << "podaj parametry jednostki, która chcesz dodac" << endl;
+						int dz, lu;
+						string gen;
+						cout << "general" << endl;
+						cin >> gen;
+						cout << "ludzie" << endl;
+						lu = bezpieczny_int(10000);
+						cout << "dziala" << endl;
+						dz = bezpieczny_int(100);
+						Piechota piech(dz,lu, gen);
+						wsk->operator+(piech);
+						
+					}
+					if (a == 3)
+					{
+						int ref;
+						cout << "z ktora jednostki chcesz porownac" << endl;
+						if (qe == "Gw")
+						{
+							ref = bezpieczny_int(gw.size() + 1);
+							gw[qq] == gw[ref];
+						}
+						if (qe == "Ot")
+						{
+							ref = bezpieczny_int(obrona.size() + 1);
+							obrona[qq] == obrona[ref];
+						}
+						if (qe == "Lad")
+						{
+							ref = bezpieczny_int(ladowe.size() + 1);
+							ladowe[qq] == ladowe[ref];
+						}
+					}
+					if (a == 4)
+					{
+						cout << "podaj parametry" << endl;
+						int wyg_bit, jency; 
+						string jen_gen;
+						cout << "wygrane bitwy" << endl;
+						wyg_bit = bezpieczny_int(11111);
+						cout << "jency" << endl;
+						jency = bezpieczny_int(333333);
+						cout << "general" << endl;
+						cin >> jen_gen;
+						wsk->operator()(wyg_bit, jency, jen_gen);
+
+					}
+				}
+			}
 		}
 
 		
@@ -313,6 +457,37 @@ void menu()
 		i=8;
 	}
 
+}
+int bezpieczny_int(int zakres)
+{
+	int wynik=zakres+1;
+	while (wynik > zakres)
+	{
+		cin >> wynik;
+		if (wynik < 0)wynik = wynik*(-1);
+		if (wynik > zakres)cout << "poadaj mniejszy int" << endl;
+		if (wynik == 0)
+		{
+			cout << "zero nie moze byc" << endl;
+			wynik = zakres + 5;
+		}
+		while (cin.fail() == 1)
+		{
+			cout << "daj liczbe" << endl;
+			cin.clear();
+			cin.ignore(100, '\n');
+			cin >> wynik;
+			if (wynik < 0)wynik = wynik*(-1);
+			if (wynik == 0)
+			{
+				cout << "zero nie moze byc" << endl;
+				wynik = zakres + 5;
+			}
+		}
+		
+	}
+
+	return wynik;
 }
 /*
 void testuj_op_i_fun()

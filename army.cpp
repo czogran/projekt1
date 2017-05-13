@@ -144,6 +144,7 @@ Armia & Armia::operator+(const Piechota & p)
 {
 	piechota.push_back(p);
 	//jak usun¹æ tutaj p;
+	ile_piechota++;
 	cout << "poaaa" << endl;
 	return *this;
 }

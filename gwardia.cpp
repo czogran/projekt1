@@ -30,6 +30,63 @@ Gwardia::Gwardia(int p,int pa, int zm)
 
 }
 
+Gwardia & Gwardia::operator+(const int b)
+{
+	ile_panc = +b;
+	ile_piechota = +b;
+	ile_zmech = +b;
+
+	for (int i = 0; i < ile_panc - b; i++)
+	{
+
+		pancerne.push_back(Divpanc());
+
+	}
+	for (int d = 0; d <  b; d++)
+	{
+		piechota.push_back(Piechota());
+	}
+
+	for (int d = 0;d < b;d++)
+	{
+		mechaniczne.push_back(Zmech());
+	}
+	return *this;
+}
+
+Gwardia & Gwardia::operator()(int a, int b, string h)
+{
+	cout << "To gwardia," << endl;
+	propa(a, b, h);
+	cout << endl;
+	return *this;
+}
+
+Gwardia & Gwardia::operator()(string h, int a, int b)
+{
+	cout << "Wspania³a gwardia," << endl;
+	zwprop(a, b, h);
+	cout << endl;
+	return *this;
+}
+
+bool Gwardia::operator==(const Gwardia & a) const
+{
+	if (a.ile_panc == ile_panc && a.ile_piechota == ile_piechota && a.ile_zmech==ile_zmech)//&& a.ile_zmech==ile_zmech)
+	{
+		cout << "maja tyle samo jednostek" << endl;
+		return true;
+	}
+	else
+	{
+		if (a.ile_zmech == ile_zmech) cout << "maja tyle samo zmechanizowancyh" << endl;
+		if (a.ile_panc == ile_panc) cout << "maja tyle samo jed panc" << endl;
+		if (a.ile_piechota == ile_piechota) cout << "maja tyle samo jed piechoty" << endl;
+		return false;
+	}
+	
+}
+
 void Gwardia::plik()
 {
 	fstream plik("armijka.txt", ios::in | ios::out | ios::app);
@@ -57,7 +114,7 @@ void Gwardia::zpliku(int nr_jed)
 				plik >> aq;
 				if (aq == nr_jed)
 				{
-					cout << "Gw" << "" << aq;
+					cout << "Gw" << "" << aq << endl;;
 					plik >> *this;
 					//plik >> c >> d >> e >> f;
 					//cout << " ile_piechota " << c << " ile panc " << d << " ile zmech " << e << " okres sluzby " << f << endl;

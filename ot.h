@@ -32,12 +32,11 @@ public:
 	int suma_piech();
 	int suma_dzial();
 
-	Ot & operator+(int b);
-	//Ot  &operator=(const Ot& aa);
+	//Ot &operator+(const Piechota&p);
+	Ot & operator+(int b);	
 	Ot  &operator()(int a, int b, string h);
 	Ot &operator()(string h, int a, int b);
 	bool operator ==(const Ot& a) const;
-	//Armia &operator=(const Armia &aa);
 	friend ostream& operator<< (ostream&,Ot const&);
 	friend istream& operator >> (istream&, Ot const&);
 	void zmn_il_pob(int ile);

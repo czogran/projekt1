@@ -9,3 +9,4 @@
 
 void menu();
 void testuj_op_i_fun();
+int bezpieczny_int(int zakres);

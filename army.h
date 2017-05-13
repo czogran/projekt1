@@ -82,14 +82,15 @@ public:
 	virtual Armia & operator+(const int b);								//1 
 	friend ostream& operator<< (ostream&, Armia const& );
 	friend istream& operator>> (istream&, Armia const&);
-	virtual Armia  &operator()(int wyg_bit, int jency, string jen_gen);					//3a
+	virtual Armia  &operator()(int wyg_bit, int jency, string jen_gen);			//to drukuje gazete		//3a
 	virtual Armia  &operator()( string gen,int bit, int jen);					//3b
-	
+	virtual bool operator ==(const Armia& a) const;
+
 	
 	//virtual Armia &operator=(const Armia &aa);							//4
 	void  operator[](string gen);								//5
 	void operator[](int a);										//6
-	virtual bool operator ==(const Armia& a) const;						//7
+							//7
 	bool operator < (const Armia& a)const;						//8
 	bool operator > ( Armia& a);
 	void operator &&(const Armia&a);							//9

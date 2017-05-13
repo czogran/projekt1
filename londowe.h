@@ -25,8 +25,8 @@ public:
 
 	friend ostream& operator<< (ostream&, Lad const&);
 	friend istream&operator>> (istream&, Lad const&);
-	Lad &operator+ (const int b);
-	Lad &operator()(int a, int b, string h);					//3a
-	Lad &operator()(string h, int a, int b);
-	bool operator ==(const Lad& a) const;
+	virtual	Lad &operator+ (const int b);
+	virtual Lad &operator()(int a, int b, string h);					//3a
+	virtual Lad &operator()(string h, int a, int b);
+	virtual bool operator ==(const Lad& a) const;
 };

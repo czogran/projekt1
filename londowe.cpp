@@ -110,13 +110,13 @@ Lad & Lad::operator+(const int b)
 	ile_piechota = +b;
 	
 
-	for (int i = 0; i < ile_panc - b; i++)
+	for (int i = 0; i < b; i++)
 	{
 
 		pancerne.push_back(Divpanc());
 
 	}
-	for (int d = 0; b < ile_piechota - b; d++)
+	for (int d = 0; d < b; d++)
 	{
 		piechota.push_back(Piechota());	
 	}
@@ -153,6 +153,7 @@ bool Lad::operator==(const Lad & a) const
 	{
 		if (a.ile_panc == ile_panc) cout << "maja tyle samo jed panc" << endl;
 		if (a.ile_piechota == ile_piechota) cout << "maja tyle samo jed piechoty" << endl;
+		else cout << "lad ma rozne liczby jednostek" << endl;
 		return false;
 	}
 }

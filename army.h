@@ -4,6 +4,7 @@
 #include<cstdlib>
 #include <string>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -48,9 +49,9 @@ public:
 	void zwprop(int nit, int jen, string gen);
 	int ile_armii() { return nr_armi; };
 	
-	int suma_piech();
-	int suma_dzial();
-	int suma_czol();
+	virtual int suma_piech();
+	virtual int suma_dzial();
+	virtual int suma_czol();
 	void zmien_panc(int nr, int c, int lu);
 	virtual string dodaj_do_pliku()
 	{
@@ -62,6 +63,13 @@ public:
 	{
 		//fstream plik("armijka.txt", ios::in | ios::out | ios::app);
 	}
+	virtual void dopliku()  //(int nr_jednostki, ostream&, Armia const&)
+	{
+		fstream plik("armijka.txt", ios::in | ios::out | ios::app);
+		plik << *this;
+		plik.close();
+
+	}
 	virtual void zpliku(int nr_jednostki)
 	{
 	}
@@ -72,7 +80,8 @@ public:
 	}
 	virtual Armia &operator+(const Piechota&p);
 	virtual Armia & operator+(const int b);								//1 
-	friend ostream& operator<< (ostream&, Armia const& );		//2
+	friend ostream& operator<< (ostream&, Armia const& );
+	friend istream& operator>> (istream&, Armia const&);
 	virtual Armia  &operator()(int wyg_bit, int jency, string jen_gen);					//3a
 	virtual Armia  &operator()( string gen,int bit, int jen);					//3b
 	

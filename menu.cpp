@@ -21,7 +21,8 @@ void menu()
 	{
 		cout << "wpisz ile chcesz OT" << endl;
 		cin >> a;
-		if (a < 0)a = a*(-1);
+		if (a < 0)
+			a = a*(-1);
 		while(cin.fail()==1)
 		
 		{
@@ -29,7 +30,8 @@ void menu()
 			cin.clear();
 			cin.ignore(100, '\n');
 			cin >> a;
-			if (a < 0) ;
+			if (a < 0) 
+				a = a*(-1);
 			//e = cin.fail();
 		}
 
@@ -37,7 +39,6 @@ void menu()
 		cin >> b;
 		if (b < 0)b = b*(-1);
 		while (cin.fail() == 1)
-
 		{
 			cout << "daj liczbe" << endl;
 			cin.clear();
@@ -216,11 +217,158 @@ void menu()
 					else
 						wsk->zpliku(qq);
 				}
+			
+			
+			}
+
+///testy operatorów i funkcji
+			if (q == 3)
+			{
+				Armia *wsk;
+				int a;
+				cout << "Podaj jednostke z ktorech chcesz wywolywaæ" << endl;
+				string qe;
+				cin >> qe;
+				while (qe != "Ot" && qe != "Lad"  && qe != "Gw")
+				{
+					cout << "wpisz nazwe jednostki" << endl;
+					cin.clear();
+					cin.ignore(100, '\n');
+					cin >> qe;
+					//cout << q;
+				}
+				int qq;
+				if (qe == "Ot")
+				{
+
+					cin >> qq;
+					if (qq > obrona.size())
+						cout << "nie ma tyle Ot";
+					else
+					{
+						wsk = &obrona[qq - 1];
+						cout << "Podaj nr funkcji lub operatora, ktory chcesz przetestowaæ" << endl
+							<< "1.fun ile piechota" << endl
+							<< "2. fun ile dzial" << endl;
+						int as;
+						cin >> as;
+						if (as == 1)
+						{
+
+							cout << wsk->suma_piech() << endl;;
+						}
+						if (as == 2)
+						{
+							cout << wsk->suma_dzial() << endl;
+						}
+					}
+				}
+				if (qe == "Lad")
+				{
+
+					cin >> qq;
+					if (qq > ladowe.size())
+						cout << "nie ma tyle ladowych";
+					else
+					{
+						wsk = &ladowe[qq - 1];
+						cout << "Podaj nr funkcji lub operatora, ktory chcesz przetestowaæ" << endl
+							<< "1.fun ile piechota" << endl
+							<< "2. fun ile czolgow" << endl;
+						int as;
+						cin >> as;
+						if (as == 1)
+						{
+
+							cout << wsk->suma_piech() << endl;;
+						}
+						if (as == 2)
+						{
+							cout << wsk->suma_czol();
+						}
+						//else
+						//wsk->zpliku(qq);
+					}
+					if (qe == "Gw")
+					{
+						wsk = &gw[0];
+						cin >> qq;
+						if (qq > gw.size())
+							cout << "nie ma tyle Gw";
+						//else
+						//wsk->zpliku(qq);
+					}
+				}
 			}
 
 		}
+
+		
+		
+
+
+
+
 
 		i=8;
 	}
 
 }
+/*
+void testuj_op_i_fun()
+{
+	
+	int a;
+	cout << "Podaj jednostke z ktorech chcesz wywolywaæ" << endl;
+		string qe;
+	cin >> qe;
+	while (qe != "Ot" && qe != "Lad" && q != 3 && qe != "Gw")
+	{
+		cout << "wpisz nazwe jednostki" << endl;
+		cin.clear();
+		cin.ignore(100, '\n');
+		cin >> qe;
+		//cout << q;
+	}
+	int qq;
+	if (qe == "Ot")
+	{
+		wsk = &obrona[0];
+		cin >> qq;
+		if (qq > obrona.size())
+			cout << "nie ma tyle Ot";
+		else
+		{
+			cout << "Podaj nr funkcji lub operatora, ktory chcesz przetestowaæ" << endl
+		<< "1.fun ile piechota"
+		<< "2. fun ile dzial" << endl;
+			int as;
+			cin >> as;
+			if (as == 1) 
+			{
+				cout << obrona[as].ile_piechota();
+			}
+		}
+	}
+	if (qe == "Lad")
+	{
+		wsk = &ladowe[0];
+		cin >> qq;
+		if (qq > ladowe.size())
+			cout << "nie ma tyle ladowych";
+		//else
+			//wsk->zpliku(qq);
+	}
+	if (qe == "Gw")
+	{
+		wsk = &gw[0];
+		cin >> qq;
+		if (qq > gw.size())
+			cout << "nie ma tyle Gw";
+		//else
+			//wsk->zpliku(qq);
+	}
+	
+
+}
+*/

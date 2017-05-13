@@ -25,8 +25,12 @@ public:
 	
 	void plik();
 	void zpliku(int nr_jednostki);
+	void dopliku();
+	
 	
 	string dodaj_do_pliku();
+	int suma_piech();
+	int suma_dzial();
 
 	Ot & operator+(int b);
 	//Ot  &operator=(const Ot& aa);
@@ -35,14 +39,7 @@ public:
 	bool operator ==(const Ot& a) const;
 	//Armia &operator=(const Armia &aa);
 	friend ostream& operator<< (ostream&,Ot const&);
-	void zmn_il_pob(int ile)
-	{
-		if (ile>ilosc_poborowych)
-		cout << "za duzo chcesz" << endl;
-		else
-		{
-			ilosc_poborowych = ilosc_poborowych - ile;
-			cout << "mamy teraz tyle poborowych: " << ilosc_poborowych << endl;
-		}
-	}
+	friend istream& operator >> (istream&, Ot const&);
+	void zmn_il_pob(int ile);
+	
 };

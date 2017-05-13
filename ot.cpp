@@ -26,6 +26,7 @@ Ot::Ot(int ilos, int ile_piech)
 {
 	ilosc_poborowych = ilos;
 	ile_piechota = ile_piech;
+	ile_panc = 0;
 	okrzyk = "brak";
 	czas_szkolenia = 0;
 	for (int i = 0;i < ile_piechota; i++)
@@ -47,9 +48,12 @@ Ot::Ot(int ilos, int ile_piech)
 
 void Ot::plik()
 {
+
+
 	fstream plik("armijka.txt", ios::in | ios::out | ios::app);
-	plik << "Ot " << nr_tej_ot << endl
-		<< ile_piechota << " " << ilosc_poborowych << " " << czas_szkolenia << " " << okrzyk << endl;
+	plik << "Ot " << nr_tej_ot << endl;
+		//<< ile_piechota << " " << ilosc_poborowych << " " << czas_szkolenia << " " << okrzyk << endl;
+	plik << *this;
 	plik.close();
 
 }
@@ -57,6 +61,8 @@ void Ot::zpliku(int nr_jednostki)
 {
 	ifstream plik;
 	plik.open("armijka.txt");
+
+
 	while (true) //pêtla nieskoñczona
 	{
 		int aq;
@@ -71,9 +77,13 @@ void Ot::zpliku(int nr_jednostki)
 				plik >> aq;
 				if (aq == nr_jednostki)
 				{
-					cout << endl << aq << endl;
-					plik >> c >> d >> e >> cc;
-					cout << " ile_piechota " << c << " ilosc_poborowych " << d << " czas_szkolenia " << e << " okrzyk " << cc << endl;
+					cout << "Ot " << aq << endl;
+					plik >> *this;
+
+
+					////cout << endl << aq << endl;
+					//plik >> c >> d >> e >> cc;
+					//cout << " ile_piechota " << c << " ilosc_poborowych " << d << " czas_szkolenia " << e << " okrzyk " << cc << endl;
 				}
 				
 			}
@@ -84,12 +94,48 @@ void Ot::zpliku(int nr_jednostki)
 	}
 }
 
+void Ot::dopliku()
+{
+	fstream plik("armijka.txt", ios::in | ios::out | ios::app);
+	dopliku();
+
+
+	plik << *this;
+	plik.close();
+
+}
+
+
 
 string Ot::dodaj_do_pliku()
 {
 	string d;
 	d = "to Ot";
 	return d;
+}
+
+int Ot::suma_piech()
+{
+	int a = 0;
+	
+		for (int i = 0;i<ile_piechota;i++)
+		{
+			a = a + piechota[i].ludzie;
+		}
+
+	return a;
+}
+
+int Ot::suma_dzial()
+{
+	int a = 0;
+	for (int i = 0; i<ile_piechota; i++)
+	{
+		a = a + piechota[i].dziala;
+	}
+	return a;
+
+	return 0;
 }
 
 Ot & Ot::operator+(int b)
@@ -157,9 +203,35 @@ bool Ot::operator==(const Ot & a) const
 	}
 }
 
+void Ot::zmn_il_pob(int ile)
+{
+	
+		if (ile>ilosc_poborowych)
+			cout << "za duzo chcesz" << endl;
+		else
+		{
+			ilosc_poborowych = ilosc_poborowych - ile;
+			cout << "mamy teraz tyle poborowych: " << ilosc_poborowych << endl;
+		}
+	
+}
+
 ostream & operator<<(ostream &wej, Ot const &aa)
 {
-	wej <<aa.nr_tej_ot<<" "<< aa.ile_piechota << " " << aa.okrzyk << endl;
+	wej << (Armia&)aa;
 
-		return wej;
+
+	wej <<aa.nr_tej_ot<<" "<< aa.czas_szkolenia<<" " << aa.okrzyk << endl;
+
+	return wej;
+}
+
+istream & operator>>(istream &wyj,  Ot const &a)
+{
+	int cz, ntej;
+	string k;
+	wyj >> (Armia&)a;
+	wyj >> ntej >> cz >> k;
+	cout << ntej << " " <<  cz << " " << k << endl;
+	return wyj;
 }

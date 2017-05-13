@@ -6,6 +6,7 @@ class Zmech
 	int czolgi;
 	int dziala;
 	int piechota;
+	friend class Gwardia;
 public:
 	Zmech(int c=1, int dz=11, int p=21)
 	{

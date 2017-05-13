@@ -8,3 +8,4 @@
 #include "gwardia.h"
 
 void menu();
+void testuj_op_i_fun();

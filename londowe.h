@@ -17,10 +17,14 @@ public:
 	
 	//Lad(const Lad&a);
 
+	virtual int suma_piech();
+	virtual int suma_dzial();
+	virtual int suma_czol();
 	virtual void plik();
 	virtual void zpliku(int nr_jed);
 
 	friend ostream& operator<< (ostream&, Lad const&);
+	friend istream&operator>> (istream&, Lad const&);
 	Lad &operator+ (const int b);
 	Lad &operator()(int a, int b, string h);					//3a
 	Lad &operator()(string h, int a, int b);

@@ -13,7 +13,11 @@ class Gwardia :public Lad
 	public:
 		Gwardia (int p=10, int pa=10, int zm=10);
 		friend ostream& operator<< (ostream&, Gwardia const&);
-			
+		friend istream& operator >> (istream&, Gwardia const&);
+
 		void plik();
 		void zpliku(int nr_jed);
+		int suma_piech();
+		int suma_dzial();
+		int suma_czol();
 };

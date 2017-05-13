@@ -7,7 +7,8 @@ class Divpanc
 	int ludzie;
 	int jestem_warminr;
 	friend class Armia;
-	//friend class Korpus;
+	friend class Lad;
+	friend class Gwardia;
 	void ta_armia(int nr1);
 
 

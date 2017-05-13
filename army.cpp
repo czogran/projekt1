@@ -334,7 +334,17 @@ inline Armia::operator float() const
 ostream & operator<<(ostream & wyjscie , Armia const & a)
 {
 	
-	wyjscie << "ARMYile armii: "<< a.nr_armi<< "Liczba piechoty " << a.ile_piechota<< " dywizje pancerna: " << a.ile_panc << endl;
+	//wyjscie << "ARMYile armii: "<< a.nr_armi<< "Liczba piechoty " << a.ile_piechota<< " dywizje pancerna: " << a.ile_panc << endl;
+	wyjscie << a.ile_piechota << " " << a.ile_panc << endl;
+	return wyjscie;
+}
+
+istream & operator>>(istream &wyjscie, Armia const &a)
+{
+	int ppiech, ppanc;
+	string s;
+	wyjscie >> ppiech >>  ppanc;
+	cout << ppiech << " " << ppanc << endl;
 	return wyjscie;
 }
 

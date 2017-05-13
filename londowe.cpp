@@ -24,12 +24,48 @@ Lad::Lad( int pan, int p,int okres, string wdz)
 
 }
 
+int Lad::suma_piech()
+{
+	int a = 0;
+	for (int i = 0;i<ile_piechota;i++)
+	{
+		a = a + piechota[i].ludzie;
+	}
+	for (int i = 0; i<ile_panc; i++)
+	{
+		a = a + pancerne[i].ludzie;
+	}
+	return a;
+}
+
+int Lad::suma_dzial()
+{
+	int a = 0;
+	for (int i = 0; i<ile_piechota; i++)
+	{
+		a = a + piechota[i].dziala;
+	}
+	return a;
+}
+
+int Lad::suma_czol()
+{
+
+	int a = 0;
+	for (int i = 0; i<ile_panc; i++)
+	{
+		a = a + pancerne[i].czolgi;
+	}
+	return a;
+}
+
 void Lad::plik()
 {
 	fstream plik("armijka.txt", ios::in | ios::out | ios::app);
-	plik << "Lad " << nr_tej_lad << endl
-		<< ile_piechota << " " << ile_panc << " " << okres_sluzby << endl;
-	plik.close();
+	plik << "Lad " << nr_tej_lad << endl;
+		//<< ile_piechota << " " << ile_panc << " " << okres_sluzby << endl;
+	plik << *this;
+		plik.close();
 }
 
 void Lad::zpliku(int nr_jed)
@@ -50,8 +86,11 @@ void Lad::zpliku(int nr_jed)
 				plik >> aq;
 				if (aq == nr_jed)
 				{
-					plik >> c >> d >> e >> cc;
-					cout << " ile_piechota " << c << " ilpanc " << d << " okres sluzby " << e << endl;
+
+					plik >> *this;
+
+					//plik >> c >> d >> e >> cc;
+					//cout << " ile_piechota " << c << " ilpanc " << d << " okres sluzby " << e << endl;
 				}
 				//cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
 			}
@@ -120,11 +159,19 @@ bool Lad::operator==(const Lad & a) const
 
 ostream & operator<<(ostream &wyjscie, Lad const & a)
 {
-	//cout << Armia();
+	wyjscie << (Armia&)a;
 	
-	//wyjscie << "aa";
-	//cout << "ssss";
-	
-	wyjscie << "LADnumer armii: " << a.nr_tej << "Liczba piechoty " << a.ile_piechota << " dywizje pancerna: " << a.ile_panc << endl;
+	//wyjscie << "LADnumer armii: " << a.nr_tej << "Liczba piechoty " << a.ile_piechota << " dywizje pancerna: " << a.ile_panc << endl;
+	wyjscie << a.nr_tej_lad<< " " << a.okres_sluzby << endl;
 	return wyjscie;
+}
+
+istream & operator>>(istream &wyj, Lad const &a)
+{
+	int nt, czas;
+	//wyj >> (Armia&)a;
+	wyj >> (Armia&)a;
+	wyj >> nt >> czas;
+	cout << nt << " " << czas << endl;
+	return wyj;
 }

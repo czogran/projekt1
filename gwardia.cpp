@@ -33,8 +33,9 @@ Gwardia::Gwardia(int p,int pa, int zm)
 void Gwardia::plik()
 {
 	fstream plik("armijka.txt", ios::in | ios::out | ios::app);
-	plik << "Gw " << nr_tej_gwardii << endl
-		<< ile_piechota << " " << ile_panc << " "<< ile_zmech <<" " << okres_sluzby << endl;
+	plik << "Gw " << nr_tej_gwardii << endl;
+	plik << *this;
+	//	<< ile_piechota << " " << ile_panc << " "<< ile_zmech <<" " << okres_sluzby << endl;
 	plik.close();
 }
 
@@ -56,8 +57,10 @@ void Gwardia::zpliku(int nr_jed)
 				plik >> aq;
 				if (aq == nr_jed)
 				{
-					plik >> c >> d >> e >> f;
-					cout << " ile_piechota " << c << " ile panc " << d << " ile zmech " << e << " okres sluzby " << f << endl;
+					cout << "Gw" << "" << aq;
+					plik >> *this;
+					//plik >> c >> d >> e >> f;
+					//cout << " ile_piechota " << c << " ile panc " << d << " ile zmech " << e << " okres sluzby " << f << endl;
 				}
 				//cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
 			}
@@ -69,8 +72,66 @@ void Gwardia::zpliku(int nr_jed)
 
 }
 
+int Gwardia::suma_piech()
+{
+	int a = 0;
+	for (int i = 0;i<ile_piechota;i++)
+	{
+		a = a + piechota[i].ludzie;
+	}
+	for (int i = 0; i<ile_panc; i++)
+	{
+		a = a + pancerne[i].ludzie;
+	}
+	for (int i = 0; i < ile_gw; i++)
+	{
+		a = a + mechaniczne[i].piechota;
+	}
+	return a;
+}
+
+int Gwardia::suma_dzial()
+{
+	int a = 0;
+	for (int i = 0; i<ile_piechota; i++)
+	{
+		a = a + piechota[i].dziala;
+	}
+
+	for (int i = 0; i < ile_gw; i++)
+	{
+		a = a + mechaniczne[i].dziala;
+	}
+
+	return a;
+}
+
+int Gwardia::suma_czol()
+{
+	int a = 0;
+	for (int i = 0; i<ile_panc; i++)
+	{
+		a = a + pancerne[i].czolgi;
+	}
+	for (int i = 0; i < ile_gw; i++)
+	{
+		a = a + mechaniczne[i].dziala;
+	}
+	return a;
+}
+
 ostream & operator<<(ostream & wyj, Gwardia const &g)
 {
-	wyj << g.ile_zmech;
+	wyj << (Lad&)g;
+	wyj << g.ile_zmech << endl;
+	return wyj;
+}
+
+istream & operator >> (istream &wyj, Gwardia const &g)
+{
+	int mch;
+	wyj >> (Lad&)g;
+	wyj >> mch;
+	cout << mch << endl;
 	return wyj;
 }

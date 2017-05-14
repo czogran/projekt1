@@ -1,0 +1,13 @@
+﻿  propaganda.cpp
+c:\users\pawel\source\repos\projekt1\propaganda.h(4): fatal error C1083: Nie można otworzyć pliku dołącz: 'string.h': No such file or directory
+  piechota.cpp
+c:\users\pawel\source\repos\projekt1\piechota.h(3): fatal error C1083: Nie można otworzyć pliku dołącz: 'string.h': No such file or directory
+  moj test.cpp
+c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.10.25017\include\crtdefs.h(10): fatal error C1083: Nie można otworzyć pliku dołącz: 'corecrt.h': No such file or directory
+  main.cpp
+c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.10.25017\include\crtdefs.h(10): fatal error C1083: Nie można otworzyć pliku dołącz: 'corecrt.h': No such file or directory
+  divpanc.cpp
+c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.10.25017\include\crtdefs.h(10): fatal error C1083: Nie można otworzyć pliku dołącz: 'corecrt.h': No such file or directory
+  army.cpp
+c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.10.25017\include\crtdefs.h(10): fatal error C1083: Nie można otworzyć pliku dołącz: 'corecrt.h': No such file or directory
+  Generowanie kodu...

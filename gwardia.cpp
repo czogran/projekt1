@@ -26,8 +26,7 @@ Gwardia::Gwardia(int p,int pa, int zm)
 	nr_tej = nr_armi;
 	ile_gw++;
 	nr_tej_gwardii = ile_gw;
-	cout << nr_tej<<endl;
-
+	
 }
 
 Gwardia & Gwardia::operator+(const int b)

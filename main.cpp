@@ -2,6 +2,7 @@
 #include<iostream>
 #include <cstdlib>
 #include <vector>
+#include <fstream>
 
 #include <tchar.h>
 #include "divpanc.h"
@@ -10,22 +11,17 @@
 #include "ot.h"
 #include "zmechanizowane.h"
 #include "londowe.h"
+#include "gwardia.h"
+#include "menu.h"
 
 using namespace std;
 
 int main()
 {
-	Armia *wsk;
+	fstream plik("armijka.txt", ios::trunc);
+	plik.open("armijka.txt", ios::out | ios::trunc);
+	menu();
+	plik.close();
 	
-	Lad l;
-	wsk = &l;
-	wsk->operator()(1, 3, "222::");
-	Ot b(4, 5);
-	Ot d(2, 4);
-	Armia *aa = new Ot(3,7);
-	aa->a();
-	Ot da = b;
-	//b=d;
-	b == d;
 	return 0;
 }

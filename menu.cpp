@@ -57,50 +57,19 @@ void menu()
 		}
 		system("cls");
 		cout << "mamy" << endl << a << " Ot" <<endl<< b << " ladowych" <<endl<< c << " gwardii" << endl;
-		/*cout << "czy chcesz podac paramtry, ktorejs z jednostek?? 1tak, 2 nie" << endl << "tak<->nie"<<endl;
-		int q;
-		//cout << endl;
-		cin >> q;
-		while (q!=1 &&q!=2)
-
-		{
-			cout << "daj liczbe 1 lub 2" << endl;
-			cin.clear();
-			cin.ignore(100, '\n');
-			cin >> q;
-			//cout << q;
-		}
-		if (q == 2)
-		{
-			cout << "tak<->NIE" << endl;
-		}
-		if (q == 1)
-		{
-			cout  << " TAK<->nie" << endl;
-			cout << "1 Ot" << endl
-				<< "2 lad" << endl
-				<< "3 gwardia" << endl;
-			cin.clear();
-			cin.ignore(100, '\n');
-			cin >> q;
-
-
-		}
-		*/
+		
 		int aa, bb, cc, dd, ee, ff;
 		vector <Ot> obrona;
 		vector <Lad> ladowe;
 		vector <Gwardia> gw;
-		//cout << "to jest a" << a;
+		
 		srand(time(NULL));
 		for (int i = 0; i < a ; i++)
 		{
-			//cout << "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
+			
 			aa = (rand() % 10) + 2;
 			bb = (rand() % 10) + 2;
 			cc = (rand() % 10) + 2;
-			//cout << aa << bb << cc << endl;
-			//obrona.push_back(Ot(aa,bb,cc,"models","Hurrraaa"));
 			obrona.push_back(Ot(aa, bb,cc,"sss:","sss"));
 		}
 
@@ -354,9 +323,7 @@ void menu()
 				}
 				if (qe == "Gw"&&gw.size() == 0)
 				{
-					//cout << "ppppyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy";
 					if (gw.size() == 0) cout << "nie masz czego testowac" << endl;
-					//if (gw.size()==0) cout << "aaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
 				}
 				else
 				{
@@ -376,7 +343,7 @@ void menu()
 					
 					if (qe == "Gw")
 					{
-						cout << "tyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" << endl;
+						
 							qq = bezpieczny_int(gw.size() + 1);
 							wsk = &gw[qq - 1];
 					}
@@ -447,13 +414,6 @@ void menu()
 			}
 		}
 
-		
-		
-
-
-
-
-
 		i=8;
 	}
 
@@ -489,61 +449,3 @@ int bezpieczny_int(int zakres)
 
 	return wynik;
 }
-/*
-void testuj_op_i_fun()
-{
-	
-	int a;
-	cout << "Podaj jednostke z ktorech chcesz wywolywaæ" << endl;
-		string qe;
-	cin >> qe;
-	while (qe != "Ot" && qe != "Lad" && q != 3 && qe != "Gw")
-	{
-		cout << "wpisz nazwe jednostki" << endl;
-		cin.clear();
-		cin.ignore(100, '\n');
-		cin >> qe;
-		//cout << q;
-	}
-	int qq;
-	if (qe == "Ot")
-	{
-		wsk = &obrona[0];
-		cin >> qq;
-		if (qq > obrona.size())
-			cout << "nie ma tyle Ot";
-		else
-		{
-			cout << "Podaj nr funkcji lub operatora, ktory chcesz przetestowaæ" << endl
-		<< "1.fun ile piechota"
-		<< "2. fun ile dzial" << endl;
-			int as;
-			cin >> as;
-			if (as == 1) 
-			{
-				cout << obrona[as].ile_piechota();
-			}
-		}
-	}
-	if (qe == "Lad")
-	{
-		wsk = &ladowe[0];
-		cin >> qq;
-		if (qq > ladowe.size())
-			cout << "nie ma tyle ladowych";
-		//else
-			//wsk->zpliku(qq);
-	}
-	if (qe == "Gw")
-	{
-		wsk = &gw[0];
-		cin >> qq;
-		if (qq > gw.size())
-			cout << "nie ma tyle Gw";
-		//else
-			//wsk->zpliku(qq);
-	}
-	
-
-}
-*/
